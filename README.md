@@ -15,34 +15,34 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
     coverage_df = pd.read_excel(file_path, engine = "openpyxl") 
     print(coverage_df.head())
 
-    #1) to find null values
-    print(coverage_df.isnull().sum())
+    1) to find null values
 
-    # to remove null values
+    print(coverage_df.isnull().sum()) 
+    #to remove null values
     df_cleaned = coverage_df.dropna()
 
-    #2) to find duplicates
-    duplicates = coverage_df[coverage_df.duplicated()]
+    2) to find duplicates
 
-    # remove duplicates
+    duplicates = coverage_df[coverage_df.duplicated()]
+    #remove duplicates
     df_cleaned = coverage_df.drop_duplicates()
 
-    #3) fill missing values with the mean for each YEAR and ANTIGEN group
+    3) fill missing values with the mean for each YEAR and ANTIGEN group
     coverage_df['COVERAGE'] = coverage_df.groupby(['YEAR','ANTIGEN'])['COVERAGE'].transform(lambda x: x.fillna(x.mean()))
 
-    # fill missing TARGET_NUMBER and DOSES with median
+    #fill missing TARGET_NUMBER and DOSES with median
     coverage_df['TARGET_NUMBER'].fillna(coverage_df['TARGET_NUMBER'].median(),inplace = True)
     coverage_df['DOSES'].fillna(coverage_df['DOSES'].median(),inplace = True)
 
-    # Drop rows if essential fields like country name, or year are missing
+    #Drop rows if essential fields like country name, or year are missing
     coverage_df.dropna(subset=['NAME','YEAR'],inplace = True)
 
-    # check ,missing values after handling them
+    #check ,missing values after handling them
     print(coverage_df.isnull().sum())
 
-    #4) normalize units
-    # convert coverage to a percetnage (if it is incorrectrly scaled)
-
+    4) normalize units
+    
+    #convert coverage to a percetnage (if it is incorrectrly scaled)
     coverage_df['COVERAGE']=coverage_df['COVERAGE'].apply(lambda x: x if x<=100 else x/10)
 
     #convert doses and target number to integers
@@ -51,7 +51,8 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
 
     print(coverage_df[['COVERAGE','DOSES','TARGET_NUMBER']].head())
 
-    #5) save the cleaned data
+    5) save the cleaned data
+    
     coverage_df.to_excel("cleaned_coverage_data.xlsx", index = False)
 
 # Dataset 2 (about incident rate)
@@ -61,14 +62,14 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
     file_path = r"C:\Users\ratnakar\Documents\IIT Madras\Mini_Project 2\incidence-rate-data.xlsx"
     incidence_rate_df = pd.read_excel(file_path,engine="openpyxl")
 
-    #display first few rowa
+    #display first few rows
     print(incidence_rate_df.head())
 
-    #1) to find null values and remove them
+    1) to find null values and remove them
     print(incidence_rate_df.isnull().sum())
     df_cleaned=incidence_rate_df.dropna()
 
-    #2) to find duplicates 
+    2) to find duplicates 
     duplicates = incidence_rate_df[incidence_rate_df.duplicated()]
     print(duplicates)
 
@@ -88,12 +89,12 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
     # display first few rows
     print(reported_cases_df.head())
 
-    #1) to find and remove null values
+    1) to find and remove null values
 
     print(reported_cases_df.isnull().sum())
     reported_cases_df.dropna(subset=['CASES'], inplace=True)
 
-    #2) to find duplicates
+    2) to find duplicates
 
     duplicates = reported_cases_df[reported_cases_df.duplicated()]
     print(duplicates)
@@ -111,12 +112,12 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
     # display first few rows
     print(vaccine_intro_df.head())
 
-    #1) to find and remove null values
+    1) to find and remove null values
 
     print(vaccine_intro_df.isnull().sum())
     vaccine_intro_df.dropna(subset=['INTRO'], inplace=True)
 
-    #2) to find duplicates
+    2) to find duplicates
 
     duplicates = vaccine_intro_df[vaccine_intro_df.duplicated()]
     print(duplicates)
@@ -135,12 +136,12 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
     # display first few rows
     print(vaccine_schedule_df.head())
 
-    #1) to find and remove null values
+    1) to find and remove null values
 
     print(vaccine_schedule_df.isnull().sum())
     vaccine_schedule_df.dropna(subset=['TARGETPOP','AGEADMINISTERED'], inplace=True)
 
-    #2) to find duplicates
+    2) to find duplicates
 
     duplicates = vaccine_schedule_df[vaccine_schedule_df.duplicated()]
     print(duplicates)
