@@ -150,3 +150,33 @@ There are 5 datasets provided, each dataset detailing vaccination, reported case
 
     vaccine_schedule_df.drop_duplicates(inplace=True)
     vaccine_schedule_df.to_excel("cleaned_vaccine_schedule_data.xlsx",index = False)
+
+# Questions answered and Inferences made from the data visualization
+
+1) How do vaccination rates correlate with a decrease in disease incidence?
+   The vaccination rate shows a strong inverse correlation with disease incidence, there is a consistent decrease in disease incidence as the vaccination rates increased. This could also factor from something called as herd immunity, When a critical portion of the population is vaccinated, the disease struggles to spread.
+Even unvaccinated individuals (e.g., those with medical exemptions) benefit because exposure risk is lower.
+
+2) Which regions have high disease incidence despite high vaccination rates?
+   The African subcontinent showed high disease incidence despite high vaccination rates.
+
+3) What is the trend in disease cases before and after vaccination campaigns?
+   The trend in disease cases has been increasing and decreasing seasonally before vaccination campaigns began, but after the vaccination campaigns have covered a significant area, the disease trends have decreased when compared to before.
+
+4) Which diseases have shown the most significant reduction in cases due to vaccination?
+   Diseases such as polio, rubella and yellow fever have shown most significant reduction after vaccination, this is because these vaccines have a high efficiency against their causative microorganisms. Polio showed almost complete iradication wherever complete vaccination coverage has occured.
+
+5) What percentage of the target population has been covered by each vaccine?
+   Upto 70% of all target population has been covered by each vaccine.
+
+6) Are certain diseases more prevalent in specific geographic areas?
+   Certain diseases such as measules, mumps, typhoid and diptheria are more prevelant in african and asian subcontinents.
+
+7) A government health agency wants to identify regions with low vaccination coverage to allocate resources effectively.
+   Any govt health agency that wants to focus regions with low vaccination coverage should focus on regions such as african and asian subcontinent.
+
+8) A public health organization wants to evaluate the effectiveness of a measles vaccination campaign launched five years ago.
+   Measules vaccine average incidence rate 5 years ago, i.e in 2019 was 79.29 and average coverage was 70.50, this incidence rate decreased to 76.13 and the average coverage increased to 70.31.
+
+9) Researchers want to explore the incidence rates of polio in populations with no vaccination coverage.
+    The countries with no vaccionation coverage of polio are almost non-existent, although there are countries such as Tuwalo, Kiribati, Kenya, Zambya, Zimbabwe where the incident rates of polio are the highest and there is a need of vaccination coverage in these countries.
